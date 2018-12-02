@@ -1,0 +1,392 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The “page” package &#8212; Selenium Page 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Selenium Page’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-page-package">
+<h1>The “page” package<a class="headerlink" href="#the-page-package" title="Permalink to this headline">¶</a></h1>
+<p>The page package provides base classes and utilities to manipulate
+webpages using the selenium driver.</p>
+<div class="section" id="the-page-module">
+<h2>The “page” module<a class="headerlink" href="#the-page-module" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#module-selenium_page.page" title="selenium_page.page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">selenium_page.page</span></code></a> contains base classes representing abstract webpages using
+<code class="xref py py-class docutils literal notranslate"><span class="pre">BasePageElement</span></code> data descriptor attributes. These class attributes
+represent various elements on the page providing an easier API for manipulating the DOM.</p>
+<span class="target" id="module-selenium_page.page"></span><dl class="class">
+<dt id="selenium_page.page.BasePage">
+<em class="property">class </em><code class="descclassname">selenium_page.page.</code><code class="descname">BasePage</code><span class="sig-paren">(</span><em>driver</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/page.html#BasePage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.page.BasePage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class to init the base selenium_page will be called from all pages</p>
+<dl class="attribute">
+<dt id="selenium_page.page.BasePage.driver">
+<code class="descname">driver</code><a class="headerlink" href="#selenium_page.page.BasePage.driver" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">selenium.webdriver</span></code> – browser instance</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="selenium_page.page.BasePage.get_element_next_sibling">
+<em class="property">static </em><code class="descname">get_element_next_sibling</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/page.html#BasePage.get_element_next_sibling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.page.BasePage.get_element_next_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to return the next sibling from element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>element</strong> – A web element</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Sibling element</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">element</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="selenium_page.page.BaseResultsPage">
+<em class="property">class </em><code class="descclassname">selenium_page.page.</code><code class="descname">BaseResultsPage</code><span class="sig-paren">(</span><em>driver</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/page.html#BaseResultsPage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.page.BaseResultsPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for single table results pages like Invoices, Matters, etc.</p>
+<p>If only one data element is found in the table_data, row_objects will empty.</p>
+<dl class="attribute">
+<dt id="selenium_page.page.BaseResultsPage.table_data">
+<code class="descname">table_data</code><a class="headerlink" href="#selenium_page.page.BaseResultsPage.table_data" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list(elements)</em> – A list of data elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="selenium_page.page.BaseResultsPage.table_headers">
+<code class="descname">table_headers</code><a class="headerlink" href="#selenium_page.page.BaseResultsPage.table_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list(elements)</em> – A list of table header elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="selenium_page.page.BaseResultsPage.data_name">
+<code class="descname">data_name</code><a class="headerlink" href="#selenium_page.page.BaseResultsPage.data_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Name for the container class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="selenium_page.page.BaseResultsPage.key_field_index">
+<code class="descname">key_field_index</code><a class="headerlink" href="#selenium_page.page.BaseResultsPage.key_field_index" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – Index of the field to use as the container instance’s key.
+Note: The objects will exist in the class instance’s ‘row_objects’ attribute.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="selenium_page.page.BaseResultsPage.row_objects">
+<code class="descname">row_objects</code><a class="headerlink" href="#selenium_page.page.BaseResultsPage.row_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderedDict</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code> – An ordered dictionary of results objects
+as namedtuples. The key_field_index will be used to generate key names. If a key is duplicated,
+for example multiple invoice results with the same invoice number, a postfix counting the occurrences will
+be inserted by a <code class="xref py py-func docutils literal notranslate"><span class="pre">unique_key_generator()</span></code> so each result row maintains a unique key.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-selenium_page.element">
+<span id="the-element-module"></span><h2>The “element” module<a class="headerlink" href="#module-selenium_page.element" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the base classes for instantiating page objects.</p>
+<dl class="class">
+<dt id="selenium_page.element.BasePageElement">
+<em class="property">class </em><code class="descclassname">selenium_page.element.</code><code class="descname">BasePageElement</code><span class="sig-paren">(</span><em>max_wait_time: int = 100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/element.html#BasePageElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.element.BasePageElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘
+Page classes use data descriptor protocol to interact with their various elements.</p>
+<p>This is the base element data descriptor class.</p>
+<p>All concrete BasePageElement classes must have a <a class="reference external" href="http://selenium-python.readthedocs.io/selenium_page-objects.html#locators">locator</a> class attribute.</p>
+<p>If the located element is a <code class="docutils literal notranslate"><span class="pre">&lt;select&gt;</span></code> a <code class="xref py py-class docutils literal notranslate"><span class="pre">Select</span></code>
+webelement will be used.</p>
+<dl class="attribute">
+<dt id="selenium_page.element.BasePageElement.locator">
+<code class="descname">locator</code><a class="headerlink" href="#selenium_page.element.BasePageElement.locator" title="Permalink to this definition">¶</a></dt>
+<dd><p>The locator to select the element.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="selenium_page.element.BasePageElement.max_wait_time">
+<code class="descname">max_wait_time</code><a class="headerlink" href="#selenium_page.element.BasePageElement.max_wait_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximuum time to try and get an element. Defaults to 100 seconds.</p>
+</dd></dl>
+
+<p class="rubric">Example</p>
+<p>Consider the following element class with a made up locator object.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UserNameElement</span><span class="p">(</span><span class="n">BasePageElement</span><span class="p">):</span>
+    <span class="n">locator</span> <span class="o">=</span> <span class="s1">&#39;userName&#39;</span>
+
+<span class="k">class</span> <span class="nc">LoginPage</span><span class="p">(</span><span class="n">BasePage</span><span class="p">):</span>
+    <span class="n">username_input</span> <span class="o">=</span> <span class="n">UserNameElement</span><span class="p">()</span>
+
+<span class="n">login_page</span> <span class="o">=</span> <span class="n">LoginPage</span><span class="p">()</span>
+
+<span class="c1"># The below command will set the value on the element located by the data-descriptor</span>
+<span class="n">login_page</span><span class="o">.</span><span class="n">username_input</span> <span class="o">=</span> <span class="s1">&#39;My UserName&#39;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutException</span></code> – When the element cannot be found within the
+<a class="reference internal" href="#selenium_page.element.BasePageElement.max_wait_time" title="selenium_page.element.BasePageElement.max_wait_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_wait_time</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="selenium_page.element.BasePageElements">
+<em class="property">class </em><code class="descclassname">selenium_page.element.</code><code class="descname">BasePageElements</code><span class="sig-paren">(</span><em>max_wait_time: int = 100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/element.html#BasePageElements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.element.BasePageElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to the above, but uses find_elements to return lists
+rather than find_element which returns specific nodes. Uses CSS
+rather than name if locator is string.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="selenium_page.element.ReadonlyPageElement">
+<em class="property">class </em><code class="descclassname">selenium_page.element.</code><code class="descname">ReadonlyPageElement</code><span class="sig-paren">(</span><em>max_wait_time: int = 100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/element.html#ReadonlyPageElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.element.ReadonlyPageElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readonly data descriptor</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="selenium_page.element.ReadonlyPageElements">
+<em class="property">class </em><code class="descclassname">selenium_page.element.</code><code class="descname">ReadonlyPageElements</code><span class="sig-paren">(</span><em>max_wait_time: int = 100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/element.html#ReadonlyPageElements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.element.ReadonlyPageElements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="selenium_page.element.Select">
+<em class="property">class </em><code class="descclassname">selenium_page.element.</code><code class="descname">Select</code><span class="sig-paren">(</span><em>webelement</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/element.html#Select"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.element.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>For some dumb reason the Select wrapper does grant access
+to all the methods of the wrapped webelement, so manually
+set references here.</p>
+<dl class="attribute">
+<dt id="selenium_page.element.Select.get_attribute">
+<code class="descname">get_attribute</code><a class="headerlink" href="#selenium_page.element.Select.get_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_attribute()</span></code> – The wrapped element’s get_attribute method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-selenium_page.condition">
+<span id="the-conditions-module"></span><h2>The “conditions” module<a class="headerlink" href="#module-selenium_page.condition" title="Permalink to this headline">¶</a></h2>
+<p>Selenium maintains a library of wait conditions under the support module.
+However, custom wait conditions can be created when none of the convenience methods
+fit. A custom wait condition can be created using a class with a __call__ method which reutrns False
+when the condition does not match.</p>
+<dl class="class">
+<dt id="selenium_page.condition.LazyLoadElementHasDataCondition">
+<em class="property">class </em><code class="descclassname">selenium_page.condition.</code><code class="descname">LazyLoadElementHasDataCondition</code><span class="sig-paren">(</span><em>locator</em>, <em>data_selector</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/condition.html#LazyLoadElementHasDataCondition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.condition.LazyLoadElementHasDataCondition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A custom wait condition to check if the lazy loaded element has data.</p>
+<dl class="attribute">
+<dt id="selenium_page.condition.LazyLoadElementHasDataCondition.locator">
+<code class="descname">locator</code><a class="headerlink" href="#selenium_page.condition.LazyLoadElementHasDataCondition.locator" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – locator to find the root element, see <a class="reference external" href="http://selenium-python.readthedocs.io/selenium_page-objects.html#locators">Locators</a> design pattern.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="selenium_page.condition.LazyLoadElementHasDataCondition.data_selector">
+<code class="descname">data_selector</code><a class="headerlink" href="#selenium_page.condition.LazyLoadElementHasDataCondition.data_selector" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – css selector to find the data elements from the <a class="reference internal" href="#selenium_page.condition.LazyLoadElementHasDataCondition.locator" title="selenium_page.condition.LazyLoadElementHasDataCondition.locator"><code class="xref py py-attr docutils literal notranslate"><span class="pre">locator</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="selenium_page.condition.LazyLoadInputElementHasDataCondition">
+<em class="property">class </em><code class="descclassname">selenium_page.condition.</code><code class="descname">LazyLoadInputElementHasDataCondition</code><span class="sig-paren">(</span><em>locator</em>, <em>data_selector</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/condition.html#LazyLoadInputElementHasDataCondition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.condition.LazyLoadInputElementHasDataCondition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#selenium_page.condition.LazyLoadElementHasDataCondition" title="selenium_page.condition.LazyLoadElementHasDataCondition"><code class="xref py py-class docutils literal notranslate"><span class="pre">LazyLoadElementHasDataCondition</span></code></a> only checks for value instead of text.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-selenium_page.decorators">
+<span id="the-decorators-module"></span><h2>The “decorators” module<a class="headerlink" href="#module-selenium_page.decorators" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="selenium_page.decorators.coroutine">
+<code class="descclassname">selenium_page.decorators.</code><code class="descname">coroutine</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/decorators.html#coroutine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.decorators.coroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to create a co-routine (automatically primes it).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> (<em>Coroutine</em>) – co-routine to be primed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">primed co-routine.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Coroutine</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="selenium_page.decorators.scroll_to_element">
+<code class="descclassname">selenium_page.decorators.</code><code class="descname">scroll_to_element</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/decorators.html#scroll_to_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.decorators.scroll_to_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to execute a function only when an element is in view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>element</strong> – The element to bring in to view</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="selenium_page.decorators.wait_until_condition">
+<code class="descclassname">selenium_page.decorators.</code><code class="descname">wait_until_condition</code><span class="sig-paren">(</span><em>condition</em>, <em>timeout=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/decorators.html#wait_until_condition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.decorators.wait_until_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to execute a function only after a condition is met.</p>
+<p>A condition is any object with a call method returning True or False. See the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LazyLoadElementHasDataCondition</span></code> example.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>condition</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><em>object</em></a>) – The condition to check</li>
+<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) – Time in seconds before condition times out in failure</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-selenium_page.utils">
+<span id="the-utils-module"></span><h2>The “utils” module<a class="headerlink" href="#module-selenium_page.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="selenium_page.utils.chunks">
+<code class="descclassname">selenium_page.utils.</code><code class="descname">chunks</code><span class="sig-paren">(</span><em>l</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/utils.html#chunks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.utils.chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields successive n-sized chunks from list
+credit to <a class="reference external" href="https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks">Ned Batchelder</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>l</strong> (<em>iterable</em>) – An iterable to be split in to n sized chunks</li>
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The size of the yielded chunks</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Yields:</th><td class="field-body"><p class="first last"><em>list</em> – An n-sized list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="selenium_page.utils.scroll_to_click_element_until_timeout">
+<code class="descclassname">selenium_page.utils.</code><code class="descname">scroll_to_click_element_until_timeout</code><span class="sig-paren">(</span><em>element</em>, <em>timeout=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/utils.html#scroll_to_click_element_until_timeout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.utils.scroll_to_click_element_until_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to click an element until timeout.</p>
+<p>Scrolls to the element until the click succeeds or timeout.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>element</strong> – Element to be clicked</li>
+<li><strong>timeout</strong> – Time before failure occurs</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="selenium_page.utils.unique_key_generator">
+<code class="descclassname">selenium_page.utils.</code><code class="descname">unique_key_generator</code><span class="sig-paren">(</span><em>dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/selenium_page/utils.html#unique_key_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#selenium_page.utils.unique_key_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>This generator object creates unique keys for the target dictionary.</p>
+<p>If the key already exists in the dictionary it appends the number
+of occurrences to the key name. Useful when creating search results identifiers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dictionary</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – The target dictionary to check</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Yields:</th><td class="field-body"><em>str</em> – A unique key name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Selenium Page’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Jonny Fuller.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/page.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
